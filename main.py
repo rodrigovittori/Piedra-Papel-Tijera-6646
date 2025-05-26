@@ -1,6 +1,6 @@
 """
 Primera Actividad Módulo 3: Proyecto - Piedra-Papel-Tijeras
-Versión: 0.3.0
+Versión: 0.4.0
 -------------------------------------
 
 Link al repo: https://github.com/rodrigovittori/Piedra-Papel-Tijera-6646
@@ -8,18 +8,14 @@ Hitorial del repo: https://github.com/rodrigovittori/Piedra-Papel-Tijera-6646/co
 Link al proyecto final (en HUB): ** todavía NO publicado **
 -------------------------------------
 
-Paso Nº 3: Pedir al Jugador su elección (piedra, papel o tijera)
-    > Creamos una nueva variable (dentro del bucle) -> opcion_jugador
-    > Pedimos su valor con input() y lo convertimos a int()
-        > 1) Piedra
-        > 2) Tijeras
-        > 3) Papel
+Paso Nº 4: Generamos con random.randint(1,3) la respuesta de la computadora y la almacenamos en una nueva variable
+           llamada opcion_compu; luego, la reemplazamos por el texto equivalente
 
-    > Creamos un bucle para verificar que la opción ingresada sea válida (opcion_jugador >= 1) and (opcion_jugador <= 3)
-        > Si el valor NO es válido, lo solicitamos nuevamente
-        > En cambio, si es válido, convertimos ese valor a su equivalente en texto:
-            > 1: "Piedra" / 2: "Tijeras" / 3: "Papel"
+           > importar random
+           > creamos variable opcion_compu y le asignamos un valor random(1-3)
+           > convertimos ese valor random (int) a texto (str)
 """
+import random
 
 """ ··· [ Variables ] ··· """
 puntaje_jugador = 0
@@ -43,7 +39,14 @@ while(seguir_jugando):
     while ((opcion_jugador <= 0) or (opcion_jugador > 3)):
         opcion_jugador = int(input("\n Que eliges? \n (1) Piedra (2) Tijeras (3) Papel \n >"))
 
-    # Salimos del bucle y convertimos el valor ingresado por el Usuario a texto:
+    # Salimos del bucle
+
+    """ > Paso Nº 2: Calcular la elección de nuestro bot / IA """
+    opcion_compu = random.randint(1, 3)
+    ronda_actual += 1
+
+    """ > Paso Nº 3: Configuramos el texto """
+    # Convertimos el valor ingresado por el Usuario a texto:
 
     if (opcion_jugador == 1):
         opcion_jugador = "Piedra"
@@ -57,11 +60,26 @@ while(seguir_jugando):
     else:
         opcion_jugador = "VALOR NO VALIDO"
 
-    """ *** ELIMINAR DESPUES *** """
-    
-    print(" > Elegiste: ", opcion_jugador)
-    
-    """ *** ELIMINAR DESPUES *** """
+    # Convertimos el valor seleccionado por el Bot a texto:
+
+    if (opcion_compu == 1):
+        opcion_compu = "Piedra"
+            
+    elif (opcion_compu == 2):
+        opcion_compu = "Tijeras"
+            
+    elif (opcion_compu == 3):
+        opcion_compu = "Papel"
+        
+    else:
+        opcion_compu = "VALOR NO VALIDO"
+
+    """ * Lugar para insertar suspenso* """
+
+    # *** ELIMINAR DESPUES ***
+    print("ELECCION JUGADOR: ", opcion_jugador)
+    print("ELECCION COMPU: ", opcion_compu)
+    # *** ELIMINAR DESPUES ***
 
      # Paso Final: PREGUNTAMOS SI QUIERE SEGUIR JUGANDO
 
