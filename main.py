@@ -1,6 +1,6 @@
 """
 Primera Actividad Módulo 3: Proyecto - Piedra-Papel-Tijeras
-Versión: 0.4.0
+Versión: 0.5.0
 -------------------------------------
 
 Link al repo: https://github.com/rodrigovittori/Piedra-Papel-Tijera-6646
@@ -8,12 +8,9 @@ Hitorial del repo: https://github.com/rodrigovittori/Piedra-Papel-Tijera-6646/co
 Link al proyecto final (en HUB): ** todavía NO publicado **
 -------------------------------------
 
-Paso Nº 4: Generamos con random.randint(1,3) la respuesta de la computadora y la almacenamos en una nueva variable
-           llamada opcion_compu; luego, la reemplazamos por el texto equivalente
-
-           > importar random
-           > creamos variable opcion_compu y le asignamos un valor random(1-3)
-           > convertimos ese valor random (int) a texto (str)
+Paso Nº 5: Evaluamos el resultado de la ronda. La consigna indica que debemos seguir el órden:
+           > 1º Empate -> 2º Victoria (del jugador)  -> 3º Derrota (del jugador)
+           -> crear una estructura de control para los tres casos (if-elif-else)
 """
 import random
 
@@ -76,12 +73,34 @@ while(seguir_jugando):
 
     """ * Lugar para insertar suspenso* """
 
-    # *** ELIMINAR DESPUES ***
-    print("ELECCION JUGADOR: ", opcion_jugador)
-    print("ELECCION COMPU: ", opcion_compu)
-    # *** ELIMINAR DESPUES ***
+    """ * Lugar para insertar texto* """
 
-     # Paso Final: PREGUNTAMOS SI QUIERE SEGUIR JUGANDO
+    #########################################################
+    
+    """ Paso Nº 4: DETERMINAR RESULTADO DE RONDA: """
+
+    ## CASO 1: EMPATE
+    if(opcion_jugador == opcion_compu ):
+        print("Es un empate :/")
+
+    ## CASO 2: VICTORIA!
+    elif( ((opcion_jugador == "Piedra")   and (opcion_compu == "Tijeras")) or
+          ((opcion_jugador == "Papel")    and (opcion_compu == "Piedra"))  or
+          ((opcion_jugador == "Tijeras")  and (opcion_compu == "Papel")) ):
+        print("¡HAS GANADO! :D")
+
+    ## CASO 3: DERROTA :(
+    else:
+        print("Has sido derrotado :(")
+
+    """ * Espacio para insertar texto * """
+    
+    print("JUGADOR: ", opcion_jugador)
+    print("COMPU: ", opcion_compu)
+
+    #########################################################
+    
+    # Paso Final: PREGUNTAMOS SI QUIERE SEGUIR JUGANDO
 
     seguir_jugando = input("\n ¿Desea seguir jugando? (S/N): ")
 
@@ -91,4 +110,3 @@ while(seguir_jugando):
     else:
         seguir_jugando = False
         print("JUEGO FINALIZADO")
-        
